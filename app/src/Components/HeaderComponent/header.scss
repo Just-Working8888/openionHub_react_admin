@@ -1,0 +1,45 @@
+.headerSelect {
+    .ant-select-selector {
+        border: none !important;
+    }
+
+}
+
+.navbar {
+    margin-bottom: 50px;
+    color: #71767E !important;
+
+    :where(.css-dev-only-do-not-override-x7gi70).ant-menu-light,
+    :where(.css-dev-only-do-not-override-x7gi70).ant-menu-light>.ant-menu .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected {
+        color: #71767E;
+    }
+
+    /* Replace with your chosen color */
+
+
+    .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected {
+        color: black;
+        /* Text color for selected item */
+    }
+
+    /* Text color for selected item */
+
+
+    /* Optional: Override hover styles */
+
+    /* Override styles for the menu item */
+    .ant-menu-horizontal>.ant-menu-item {
+        margin: 0 10px;
+        border-bottom: 2px solid transparent;
+        /* Optional: adds an underline effect */
+    }
+
+    /* Optional: Override styles for the active menu item underline */
+    .ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected::after {
+        border-bottom: 2px solid rgb(0, 0, 0);
+        /* Underline color for selected item */
+    }
+
+    /* Rest of your styles */
+
+}

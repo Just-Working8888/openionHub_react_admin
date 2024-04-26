@@ -1,0 +1,142 @@
+.conteiner {
+    padding: 50px 20px;
+
+
+    .flexConteiner {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;   
+
+        .firstCol {
+            width: 60%;
+
+            h3{
+                font-weight: 800;
+                font-size: 24px;
+            }
+
+            h4{
+                font-weight: 800;
+                margin-top: 10px;
+            }
+
+            .flexStep {
+                width: 800px;
+                display: inline-block;
+                font-size: 8px;
+                
+            }
+
+            .button{
+                width: 50%;
+                text-align: right;
+
+                button{
+                    width: 70px;
+                    height: 30px;
+                    font-size: 12px;
+                }
+            }
+
+            .Form {
+                width: 50%;
+
+                .input {
+                    border: none;
+                    outline: 0;
+                    outline-offset: 0;
+                    border-bottom: 1px solid black;
+                    border-radius: 0;
+                    padding: 5px 0;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                }
+
+                .flexInput {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+
+                .radio {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    height: 10px;
+
+                    .radioElem {
+                        padding-right: 25px;
+                    }
+                }
+
+            }
+        }
+
+        .secdCol {
+            width: 40%;
+            margin: 0 auto;
+            padding-top: 50px;
+
+            .contentR{
+                border: 1px solid #DCDCDC;
+                border-radius: 10px;
+                width: 400px;
+                height: 170px;
+                text-align: center;
+                padding: 30px;
+                color: #808082;
+                margin-bottom: 20px;
+
+                .flexReit{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                }
+
+                p{
+                    font-size: 14px;
+                }
+
+                button{
+                    width: 100%;
+                    height: 50px;
+                    border-radius: 8px;
+                    background-color: transparent;
+                    border: 1px solid #DCDCDC;
+                }
+            }
+
+            .contentH{
+                border: 1px solid #DCDCDC;
+                border-radius: 10px;
+                width: 400px;
+                height: 320px;
+                color: #808082;
+                padding: 30px;
+
+                h3{
+                    margin-bottom: 25px;
+                }
+
+                p{
+                    font-size: 12px;
+                }
+
+                .buttonLink{
+                    padding-left: 0;
+                }
+
+                .buttonLink:nth-child(3){
+                    margin-bottom: 30px;
+                }
+
+                .buttonLink:last-child{
+                    margin-top: 20px;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

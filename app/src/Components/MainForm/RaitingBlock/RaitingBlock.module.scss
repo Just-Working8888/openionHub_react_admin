@@ -1,0 +1,60 @@
+.raiting {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    &_col{
+        width: 47%;
+    }
+    &_title {
+        font-family: SF Pro Display;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+
+        &_block{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &_item {
+        width: 100%;
+        height: 60px;
+        border-radius: 20px;
+        background: rgba(40, 40, 40, 0.05);
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        &_name {
+            font-family: SF Pro Display;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0px;
+            text-align: left;
+            color: rgba(40, 40, 40, 0.4);
+            margin-bottom: 0;
+        }
+
+        &_value {
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-family: SF Pro Display;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 0px;
+            color: rgba(40, 40, 40, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #E2E2E2;
+
+        }
+    }
+}

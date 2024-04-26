@@ -1,0 +1,116 @@
+@import '../../scss/variables/colors.module.scss';
+
+
+
+.openCategories {
+    border: 1px solid #DCDCDC;
+    border-radius: 8px 0px 0px 0px;
+    margin: 0 auto;
+    display: flex;
+
+
+
+    &_sideBar {
+        width: 30%;
+        height: 77vh;
+        overflow-y: auto;
+        border-right: 1px solid #DCDCDC;
+        padding-right: 6px;
+
+
+        &::-webkit-scrollbar {
+            width: 4px;
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #DCDCDC;
+            border-radius: 2px;
+            width: 4px !important;
+        }
+
+        ul {
+            li {
+
+                .categoryItem {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 8px 20px;
+                    border-bottom: 1px solid #DCDCDC;
+                    border-right: 1px solid #DCDCDC;
+                    border-radius: 0px !important;
+                    width: 100%;
+                    height: fit-content;
+                    text-align: start;
+                    cursor: pointer;
+                    color: #71767E;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+
+                .categoryItem:hover {
+                    path {
+                        stroke: black;
+                    }
+                }
+            }
+        }
+    }
+
+    &_main {
+        height: 77vh;
+        overflow-y: auto;
+        width: 80%;
+        padding: 0 1rem;
+
+        &_items {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+
+
+            &_item {
+                width: 24%;
+                height: fit-content;
+            }
+
+            h1 {
+                cursor: pointer;
+                color: #71767E;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+
+            p {
+                cursor: pointer;
+                color: #71767E;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 130%;
+                margin-bottom: 12px;
+                /* 20.8px */
+            }
+        }
+
+    }
+}
+
+.test {
+    // height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.search {
+    border: none !important;
+    border-bottom: 1px solid #DCDCDC !important;
+    border-radius: 0px !important;
+    padding: 12px !important;
+    margin-bottom: 25px;
+}

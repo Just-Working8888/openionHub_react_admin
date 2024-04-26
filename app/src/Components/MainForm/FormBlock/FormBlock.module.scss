@@ -1,0 +1,86 @@
+.form {
+
+
+    &_block {
+        padding: 40px;
+    }
+
+    &_title {
+        font-family: SF Pro Display;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 32px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    &_step {
+        font-family: SF Pro Display;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #71767E;
+    }
+
+    &_item_row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_text {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #282828;
+    }
+
+    &_text_status {
+        font-family: SF Pro Display;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #71767E;
+        width: 450px;
+    }
+    &_download{
+
+        &_row{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 450px;
+            margin-top: 30px;
+        }
+        &_item{
+            padding: 20px;
+            background-color:rgba(40, 40, 40, 0.05);
+            width: 200px;
+            border-radius: 20px;
+            &_title{
+                font-family: SF Pro Display;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 21px;
+                letter-spacing: 0px;
+                text-align: left;
+            }
+            &_text{
+                font-family: SF Pro Display;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 22px;
+                letter-spacing: 0em;
+                text-align: left;
+                margin-top: 20px;
+            }
+        }
+    }
+}

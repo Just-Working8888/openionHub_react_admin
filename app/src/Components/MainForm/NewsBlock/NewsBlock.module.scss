@@ -1,0 +1,90 @@
+.news {
+
+    &_title {
+        font-family: SF Pro Display;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    &_row{
+        display: flex;
+        column-gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    &_smallItem {
+        width: 190px;
+        height: 245px;
+        background: #F5C423;
+        border-radius: 20px;
+        padding: 10px;
+        position: relative;
+        overflow: hidden;
+        &_title {
+            font-family: SF Pro Display;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 22px;
+            letter-spacing: 0em;
+            text-align: left;
+            width: 99px;
+            margin-top: 90%;
+        }
+        img{
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    &_bigItem {
+        width: 510px;
+        height: 480px;
+        background: #F5C423;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        &_img{
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        &_top {
+            width: 270px;
+        }
+
+        &_title {
+            font-family: SF Pro Display;
+            font-size: 29px;
+            font-weight: 700;
+            line-height: 32px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+
+        &_text {
+            font-family: SF Pro Display;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 25px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+        &_bottom{
+            display: flex;
+            column-gap: 10px;
+            &_btn{
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                border: none;
+            }
+        }
+    }
+}

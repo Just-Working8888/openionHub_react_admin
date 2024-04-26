@@ -1,0 +1,10 @@
+
+
+.col_1{
+    width: 900px;
+    &_row{
+        display: flex;
+        border: 1px solid #DCDCDC;
+        border-radius: 20px;
+    }
+}
