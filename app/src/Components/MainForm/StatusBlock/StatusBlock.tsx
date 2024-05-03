@@ -11,7 +11,7 @@ const StatusBlock: FC<Props> = ({status, setStatus}) =>{
 
     return(
         <div className={classes.status}>
-                <h1 className={classes.status_title}>Добро пожаловать в BigBee Seller</h1>
+                <h1 className={classes.status_title}>Добро пожаловать в OpinioHub Seller</h1>
 
                 <p className={
                     status == 1

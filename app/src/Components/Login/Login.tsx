@@ -7,8 +7,8 @@ import { useAppDispatch } from 'store/hook';
 import { loginAsync } from 'store/reducers/authRedusers';
 import { setCookie } from 'helpers/cookies';
 import {Link} from 'react-router-dom';
-import { fetchCartItems } from 'store/reducers/cartRedusers';
 import logo from "../../assets/icon/logo.svg"
+import Logo from 'Components/Logo/Logo';
 
 
 const Login: React.FC = () => {
@@ -17,15 +17,14 @@ const Login: React.FC = () => {
     const navigate = useNavigate()
 
     const onFinish = async (values: any) => {
-        dispatch(loginAsync({ username: values.username, password: values.password }));
+        dispatch(loginAsync({ email: values.email, password: values.password }));
         try {
             setLoading(true);
-            const response = await dispatch(loginAsync({ username: values.username, password: values.password }));
-            await dispatch(fetchCartItems(response.payload.user_id))
+            const response = await dispatch(loginAsync({ email: values.email, password: values.password }));
             navigate('/');
             message.success('Авторизация успешна!');
-            setCookie('user_id', response.payload.user_id, 30)
-            setCookie('access_token', response.payload.access, 30);
+            setCookie('userId', response.payload.userId, 30)
+            setCookie('token', response.payload.token, 30);
             
         } catch (error) {
             message.error('Ошибка входа. Пожалуйста, проверьте свои учетные данные.');
@@ -40,7 +39,7 @@ const Login: React.FC = () => {
             <div className={classes.form}>
 
                 <div className={classes.icon}>
-                    <img src={logo} alt="" />
+               <Logo/>
                 </div>
 
                 <div className={classes.title}>
@@ -55,10 +54,10 @@ const Login: React.FC = () => {
                     onFinish={onFinish}
                 >
                     <Form.Item
-                        name="username"
+                        name="email"
                         rules={[{ required: true, message: 'Please input your Username!' }]}
                     >
-                        <Input className={classes.input} placeholder="Username" />
+                        <Input className={classes.input} placeholder="email" />
                     </Form.Item>
                     <Form.Item
                         name="password"

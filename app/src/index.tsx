@@ -22,7 +22,7 @@ root.render(
           colorPrimary: colors.primary50,
           colorPrimaryHover: colors.primary100,
           colorBgLayout: colors.white,
-          // colorBorder: colors.primaryborder,
+          colorBorder: colors.primaryborder,
           // colorText: colors.primarytext,
           // colorBgTextActive: colors.lightgrayfill,
           // colorBgTextHover: colors.lightgrayfill,

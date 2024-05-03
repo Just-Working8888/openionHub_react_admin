@@ -8,6 +8,7 @@ import logo from '../../assets/icon/logo.svg'
 import classes from './Header.module.scss'
 import './header.scss'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Logo from 'Components/Logo/Logo';
 
 
 const menuItems: { [key: string]: string } = {
@@ -17,6 +18,7 @@ const menuItems: { [key: string]: string } = {
     '/analytics': '4',
     '/promotions': '5',
     '/reviews': '6',
+    '/servey': '7',
 };
 const HeaderComponent: React.FC = () => {
     const location = useLocation();
@@ -36,7 +38,7 @@ const HeaderComponent: React.FC = () => {
         <>
             <header className={classes.header}>
                 <div className={classes.header_logo}>
-                    <img src={logo} alt="" />
+                    <Logo />
                     <p>Seller</p>
                 </div>
 
@@ -81,6 +83,11 @@ const HeaderComponent: React.FC = () => {
                     <Menu.Item key="6">
                         <Link to={'/reviews'}>
                             Отзывы
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="7">
+                        <Link to={'/servey'}>
+                            Опросы
                         </Link>
                     </Menu.Item>
                     {/* ...other menu items */}

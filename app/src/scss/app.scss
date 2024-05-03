@@ -33,9 +33,9 @@ thead[class*="ant-table-thead"] th {
 }
 
 .ant-checkbox-checked .ant-checkbox-inner {
-  background-color: #F5C423 !important;
+  background-color: $primary100 !important;
   /* Цвет фона для активного чекбокса */
-  border-color: #F5C423 !important;
+  border-color: $primary100 !important;
   /* Цвет границы для активного чекбокса */
 }
 
@@ -44,10 +44,10 @@ thead[class*="ant-table-thead"] th {
   width: 8px !important;
   /* Устанавливает ширину иконки галочки */
   height: 14px !important;
-  color: black !important;
+  color: white !important;
 
   ;
-  border: black;
+  border: white;
   /* Устанавливает высоту иконки галочки */
   left: 5px;
   /* Центрирование по горизонтали */
@@ -56,7 +56,73 @@ thead[class*="ant-table-thead"] th {
 }
 
 .ant-checkbox-checked .ant-checkbox-inner::after {
-  border-color: rgb(0, 0, 0);
+  border-color: rgb(255, 255, 255);
   /* Цвет галочки */
 
+}
+
+.Servey_Servey_QuetionsContainer__YsQzU {
+  .ant-card-body {
+
+    padding: 5px 25px 25px 25px !important;
+  }
+}
+
+.Servey_Servey_leftBar__OM72M {
+  .ant-card-body {
+    height: 92%;
+    padding: 0 !important;
+  }
+
+  .ant-card-actions {
+    button {
+      width: 90%;
+      height: 40px;
+    }
+  }
+}
+
+.AddQuiz_Quiz_tools__sHwal {
+  .ant-card-body {
+    height: 60vh !important;
+    
+    padding: 0 !important;
+  }
+
+  .ant-card-actions {
+    button {
+      width: 90%;
+      height: 40px;
+    }
+  }
+}
+
+.ant-card {
+  border: 1px solid #ccc;
+}
+
+.ant-checkbox-group-item {
+  align-items: center !important;
+}
+
+.quizList {
+  .ant-list-items {
+    overflow: auto;
+    height: 66vh;
+  }
+}
+
+.borderBotInput {
+  font-size: 24px;
+  border: none !important;
+  border-bottom: 1px solid #ccc !important;
+}
+
+.fokusInput {
+  font-size: 18px !important;
+  border: none !important;
+}
+
+.fokusInput:focus {
+  border-bottom: 1px solid #ccc !important;
 }

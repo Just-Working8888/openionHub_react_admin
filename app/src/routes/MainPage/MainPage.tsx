@@ -1,6 +1,6 @@
 import classes from "./MainPage.module.scss";
 import { FC, useState } from "react";
-import { MainForm, SelectCategory } from "Components";
+import { MainForm } from "Components";
 import { Button, Drawer } from "antd";
 
 
@@ -25,7 +25,7 @@ const MainPage: FC = () => {
           Выберите категорию, в которой вы собираетесь продавать товары.
           Если вы не нашли подходящую категорию, <a href="">попросите нас ее добавить.</a>
         </p>
-        <SelectCategory />
+     
 
       </Drawer>
       <MainForm />

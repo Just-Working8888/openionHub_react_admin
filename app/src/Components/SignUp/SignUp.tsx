@@ -5,7 +5,6 @@ import { Button, Form, Input, message } from 'antd';
 import classes from './SignUp.module.scss';
 import { useAppDispatch } from 'store/hook';
 import { registerAsync } from 'store/reducers/authRedusers';
-import { fetchCartItems } from 'store/reducers/cartRedusers';
 import logo from "../../assets/icon/logo.svg"
 
 const SignUp: React.FC = () => {
@@ -17,7 +16,6 @@ const SignUp: React.FC = () => {
         try {
             setLoading(true);
             const response = await dispatch(registerAsync({ username: values.username, email: values.email, password: values.password, confirm_password: values.confirm_password }));
-            await dispatch(fetchCartItems(response.payload.user_id))
             navigate('/login');
             message.success('Регистрация прошла успешно. Теперь вы можете войти в систему.');
         } catch (error) {

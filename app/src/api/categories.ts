@@ -1,16 +1,29 @@
 import { CancelToken } from 'axios';
 import { instance } from './index'
-import { Categories } from 'types/types';
+import { Quiz } from 'store/models/IQuetion';
+import { Categories } from 'store/models/ICategories';
 
-const getCategories = (sourceToken?: CancelToken) =>
-    instance.get<Categories[]>(`/categories/categories/`, { cancelToken: sourceToken });
-const getCategoriesById = (id: number, sourceToken?: CancelToken) =>
-    instance.get<Categories>(`/categories/categories/${id}`, { cancelToken: sourceToken });
+const getCategories = (
+    sourceToken?: CancelToken
+) =>
+    instance.get<Categories[]>(
+        `category`,
+        { cancelToken: sourceToken }
+    );
 
+const getCategoryById = (id?: number, sourceToken?: CancelToken) =>
+    instance.get<Categories>(`/category/${id}`, {
+        cancelToken: sourceToken,
+    });
+const deleteCategoryById = (id?: number, sourceToken?: CancelToken) =>
+    instance.delete(`/category/${id}`, {
+        cancelToken: sourceToken,
+    });
 
 
 const endpoints = {
     getCategories,
-    getCategoriesById
+    getCategoryById,
+    deleteCategoryById,
 };
 export default endpoints;

@@ -1,22 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-
 import authReducer from './slices/authSlice';
-import productsReducer from './slices/ProductSlice';
-import cartReducer from './slices/cartSlice'
-import shopReduser from './slices/shopSlice'
-import categoryReducer from './slices/categorySlice'
-import windowReducer from './slices/WindowSlice'
-import bannerReducer from './slices/BannerSlice'
+import quetionReduser from './slices/quetionSlice'
+import categoryReduser from './slices/categorySlice'
+
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    produckt: productsReducer,
-    cart: cartReducer,
-    shop: shopReduser,
-    category: categoryReducer,
-    window: windowReducer,
-    baner: bannerReducer
+    quetions: quetionReduser,
+    categories: categoryReduser
   },
 });
 

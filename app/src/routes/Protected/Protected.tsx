@@ -7,7 +7,7 @@ interface ProtectedProps {
 }
 
 const Protected: FC<ProtectedProps> = ({ children, fallback }) => {
-    const accessToken = getCookie('access_token');
+    const accessToken = getCookie('token');
 
     if (!accessToken) {
         return fallback;

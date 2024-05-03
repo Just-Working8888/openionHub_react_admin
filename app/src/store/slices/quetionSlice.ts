@@ -1,18 +1,17 @@
 
 import { createSlice } from '@reduxjs/toolkit';
-import { Categories } from 'store/models/ICategories';
-import { fetchCategories, fetchCategoriesById } from 'store/reducers/categoryReduser';
+import { Quiz } from 'store/models/IQuetion';
 import { fetchQuetion, fetchQuetionById } from 'store/reducers/quetionReduser';
 
-interface CategoryState {
-    data: Categories[];
-    singleProduct: Categories | null;
+interface QuetionState {
+    data: Quiz[];
+    singleProduct: Quiz | null;
     status: 'idle' | 'pending' | 'succeeded' | 'failed';
     error: string | null;
     laoding: boolean
 }
 
-const initialState: CategoryState = {
+const initialState: QuetionState = {
     data: [],
     status: 'idle',
     singleProduct: null,
@@ -21,36 +20,36 @@ const initialState: CategoryState = {
 };
 
 
-const categorySlice = createSlice({
-    name: 'category',
+const quetionSlice = createSlice({
+    name: 'news',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchCategories.pending, (state) => {
+            .addCase(fetchQuetion.pending, (state) => {
                 state.status = 'pending';
                 state.laoding = true
             })
-            .addCase(fetchCategories.fulfilled, (state, action) => {
+            .addCase(fetchQuetion.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.data = action.payload
                 state.laoding = false
             })
-            .addCase(fetchCategories.rejected, (state, action) => {
+            .addCase(fetchQuetion.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error ? action.error.message || 'Failed to fetch cart items' : 'Failed to fetch cart items';
                 state.laoding = false
             })
-            .addCase(fetchCategoriesById.pending, (state) => {
+            .addCase(fetchQuetionById.pending, (state) => {
                 state.status = 'pending';
                 state.laoding = true
             })
-            .addCase(fetchCategoriesById.fulfilled, (state, action) => {
+            .addCase(fetchQuetionById.fulfilled, (state, action) => {
                 state.status = 'succeeded';
                 state.singleProduct = action.payload;
                 state.laoding = false
             })
-            .addCase(fetchCategoriesById.rejected, (state, action) => {
+            .addCase(fetchQuetionById.rejected, (state, action) => {
                 state.status = 'failed';
                 state.error = action.error ? action.error.message || 'Failed to fetch product' : 'Failed to fetch product';
                 state.laoding = false
@@ -59,7 +58,7 @@ const categorySlice = createSlice({
     },
 });
 
-export const { } = categorySlice.actions;
-export const selectProducts = (state: { products: CategoryState }) => state.products;
+export const { } = quetionSlice.actions;
+export const selectProducts = (state: { products: QuetionState }) => state.products;
 
-export default categorySlice.reducer;
+export default quetionSlice.reducer;

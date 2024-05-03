@@ -106,7 +106,7 @@ const Form1: FC<Props> = ({ setSelectForm, formData, setFormData }) => {
               }
 
             }}
-            style={{ color: 'black', background: '#F5C423' }} type="primary" htmlType="submit">
+           type="primary" htmlType="submit">
             Далее
           </Button>
         </Form.Item>
