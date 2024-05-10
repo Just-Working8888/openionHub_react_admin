@@ -59,12 +59,13 @@ const QuetionList: React.FC = () => {
 
     const showModal = () => {
         setOpen(true);
+
     };
 
     const handleOk = () => {
         setModalText('The modal will be closed after two seconds');
         setConfirmLoading(true);
-        // dispatch(FetchCreateQuiz({}))
+
     };
 
     const handleCancel = () => {
@@ -117,7 +118,7 @@ const QuetionList: React.FC = () => {
                 <List.Item
                     key={item.title}
                     actions={[
-                        <EditOutlined />,
+                        <EditOutlined onClick={() => navigate(`/servey/create/${item.id}`)} />,
                         <FolderOpenOutlined />,
                         <DeleteOutlined onClick={() => handleDelete(item.id)} />,
                     ]}

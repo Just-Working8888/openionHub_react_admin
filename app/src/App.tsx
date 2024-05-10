@@ -30,8 +30,7 @@ function App() {
         <Route path='/promotions' element={<Promotions />} />
         <Route path='/reviews' element={<Reviews />} />
         <Route path='/servey' element={<Servey />} />
-        <Route path='/servey/create' element={<AddQuiz/>} />
-        
+        <Route path='/servey/create/:id' element={<AddQuiz/>} />
       </Route>
       <Route path='*' element={<main className={'errorPage'}><p>Неверный адрес</p></main>} />
     </Routes >

@@ -1,39 +1,102 @@
 
-import { Affix, Button, Card, Input, message } from "antd";
+import { Affix, Button, Card, Input } from "antd";
 import classes from "./AddQuiz.module.scss";
 import { FC, useEffect, useState } from "react";
 import EditableEditor from "./Desperation/Desperation";
 import AddQuetion from "./addQuetion/AddQuetion";
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from "@ant-design/icons";
+import { EditOutlined, EllipsisOutlined, SettingOutlined, UploadOutlined } from "@ant-design/icons";
 import { useAppDispatch, useAppSelector } from "store/hook";
 import { fetchCategories } from "store/reducers/categoryReduser";
 import { Categories } from "store/models/ICategories";
+import { getCookie } from "helpers/cookies";
+import { FetchCreateQuiz, fetchQuetionById, fetchUpdateQuetionById } from "store/reducers/quetionReduser";
+import { useParams } from "react-router-dom";
 
 
 const AddQuiz: FC = () => {
-
+    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [imageUrl, setImageUrl] = useState<string | null>(null);
+    const [title, setTitle] = useState<string>('');
+    const [description, setDescription] = useState<string>('')
     const { data } = useAppSelector((state) => state.categories)
+    const { singleProduct } = useAppSelector((state) => state.quetions)
     const [quetion, setQuetion] = useState([1])
-    const [messageApi, contextHolder] = message.useMessage();
     const dispatch = useAppDispatch()
+    const { id } = useParams()
     useEffect(() => {
         dispatch(fetchCategories({}))
+        dispatch(fetchQuetionById({ id: Number(id) }))
     }, [])
+    useEffect(() => { setTitle(singleProduct?.title as string) }, [singleProduct])
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            dispatch(fetchUpdateQuetionById({ id: id, data: { ...singleProduct, title: title } } as any))
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, [title])
+
+    const handleSubmit = async () => {
+        try {
+            const formDataToSend = new FormData();
+            formDataToSend.append('title', title);
+            formDataToSend.append('description', String(description));
+            formDataToSend.append('userId', String(getCookie('userId')));
+            if (selectedFile) {
+                formDataToSend.append('image', selectedFile);
+            }
+            dispatch(FetchCreateQuiz(formDataToSend))
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files) {
+            const file = event.target.files[0];
+            setSelectedFile(file);
+            const url = URL.createObjectURL(file);
+            setImageUrl(url);
+        }
+    };
+
+
+
     return (
         <div className={classes.Quiz}>
             <div className={classes.AddQuiz}>
-                <Card title={
+                <Card
+                    cover={
+                        <label htmlFor="upload" className={classes.AddQuiz_upload}>
+                            {imageUrl ? (
+                                <div>
+                                    <img src={imageUrl} alt="Uploaded" style={{ maxWidth: '100%' }} />
+                                </div>
+                            ) : singleProduct?.image ? <img src={`http://localhost:7002/${singleProduct.image}`} alt="Uploaded" style={{ maxWidth: '100%' }} /> :
+                                <div className={classes.AddQuiz_upload_section}>
+                                    <div className="upload_button">
+                                        <UploadOutlined style={{ fontSize: 40 }} />
+                                    </div>
+                                    <input id="upload" style={{ opacity: 0 }} type="file" onChange={handleFileChange} />
+                                    <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                                    <p className="ant-upload-hint">
+                                        Support for a single or bulk upload. Strictly prohibited from uploading company data or other
+                                        banned files.
+                                    </p>
+                                </div>
+                            }
+                        </label>
+                    }
+
+                    className={classes.AddQuiz_container}>
                     <div className={classes.AddQuiz_title}>
-                        <Input defaultValue={'Tilte'} className='borderBotInput' />
+
+                        <Input onChange={(e) => setTitle(e.target.value)} value={title} className='borderBotInput' />
                         <hr />
                         <br />
-                        <EditableEditor />
+                        <EditableEditor defaultText={singleProduct?.description} setDescription={setDescription} />
 
                     </div>
-                }
-                    className={classes.AddQuiz_container}>
-
                 </Card>
+                {/* <TestAddQuetion /> */}
                 {
                     quetion.map((item) => <>   <br />
                         <Card className={classes.AddQuiz_container}>
@@ -78,6 +141,8 @@ const AddQuiz: FC = () => {
                             )}
                         </ul>
                     </Card>
+                    <br /><br />
+                    <Button onClick={handleSubmit} type="primary" style={{ width: '100%' }}>create</Button>
                 </Affix>
 
             </div>

@@ -19,3 +19,12 @@ export interface Quiz {
     updatedAt: string; // Можно рассмотреть использование Date вместо string
     questions: Question[];
 }
+
+export interface QuizDto {
+    image: string
+    title: string;
+    description: string
+    userId: number | null;
+    questions: Question[];
+
+}

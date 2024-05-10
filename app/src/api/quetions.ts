@@ -1,6 +1,6 @@
 import { CancelToken } from 'axios';
 import { instance } from './index'
-import { Quiz } from 'store/models/IQuetion';
+import { Question, Quiz, QuizDto } from 'store/models/IQuetion';
 
 const getQuetions = (
     sourceToken?: CancelToken
@@ -17,8 +17,17 @@ const getQuetionById = (id?: number, sourceToken?: CancelToken) =>
         cancelToken: sourceToken,
     });
 
-const postQuetion = (quetion: Quiz, sourceToken?: CancelToken) =>
-    instance.post<Quiz>(`/quetions/`, quetion, {
+const postQuetion = (quetion: FormData, sourceToken?: CancelToken) =>
+    instance.post(`/quetions/`, quetion, {
+        cancelToken: sourceToken,
+    });
+const postQuizQuetion = (quetion: FormData, sourceToken?: CancelToken) =>
+    instance.post<Question>(`/quetion/`, quetion, {
+        cancelToken: sourceToken,
+    });
+
+const patchQuetionById = (id: number, data: QuizDto, sourceToken?: CancelToken) =>
+    instance.patch<Quiz>(`/quetions/${id}`, data, {
         cancelToken: sourceToken,
     });
 const deleteQuetionById = (id?: number, sourceToken?: CancelToken) =>
@@ -28,6 +37,8 @@ const deleteQuetionById = (id?: number, sourceToken?: CancelToken) =>
 
 
 const endpoints = {
+    postQuizQuetion,
+    patchQuetionById,
     getQuetions,
     getQuetionById,
     deleteQuetionById,

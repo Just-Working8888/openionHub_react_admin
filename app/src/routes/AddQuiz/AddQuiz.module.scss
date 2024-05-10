@@ -1,3 +1,5 @@
+@import'../../scss/variables/colors.module.scss';
+
 .AddQuiz {
 
     width: 100%;
@@ -5,6 +7,22 @@
     &_container {
         max-width: 1200px;
         margin: 0 auto;
+    }
+
+    &_upload {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed $primary100;
+        border-radius: 10px;
+        background-color: #e5e5e54f;
+
+        &_section {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
     }
 }
 
